@@ -4,12 +4,11 @@ const router = Router();
 
 router.get('/signin' , (req, res) => {
   return res.render('signin');
-})
+});
 
 router.get('/signup' , (req, res) => {
   return res.render('signup');
-})
-
+});
 
 router.post('/signin', async (req, res) => {
   const { email, password } = req.body;
@@ -21,7 +20,7 @@ router.post('/signin', async (req, res) => {
       error : "Incorrect Password"
     })
   }
-})
+});
 
 router.post('/signup', async (req, res) => {
   const { fullName, email, password } = req.body;
@@ -37,11 +36,11 @@ router.post('/signup', async (req, res) => {
       err,
     });
   }
-})
+});
 
 router.get('/logout', (req, res) => {
   res.clearCookie('token');
   return res.redirect('/');
-})
+});
 
 module.exports = router;
